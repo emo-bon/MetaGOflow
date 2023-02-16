@@ -69,8 +69,6 @@ input_for_motus: {
   path:  workflows/pseudo_files/pseudo.merged.unfiltered.fasta
 }
 
-# in case of parallelization might worth to have a lower value than threads, otherwise can use the value from threads
-interproscan_cpus: 20
 
 # Mandatory for running the functional annotation steps
 # If produced previously from metaGOflow, will have a suffix like: .cmsearch.all.tblout.deoverlapped 
