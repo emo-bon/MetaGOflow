@@ -8,6 +8,9 @@ assemble: false
 # Global
 threads: 20
 
+# For parallelization cases might worth decrease global value of threads
+interproscan_threads: 20
+
 # fastp parameters
 detect_adapter_for_pe: false
 overrepresentation_analysis: false
@@ -66,6 +69,8 @@ input_for_motus: {
   path:  /home1/gmoro/pipeline-v5/test_input/pseudo.merged.unfiltered.fasta
 }
 
+# in case of parallelization might worth to have a lower value than threads, otherwise can use the value from threads
+interproscan_cpus: 20
 
 # Mandatory for running the functional annotation steps
 # If produced previously from metaGOflow, will have a suffix like: .cmsearch.all.tblout.deoverlapped 
