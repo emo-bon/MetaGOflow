@@ -21,6 +21,7 @@ inputs:
   InterProScan_applications: string[]
   InterProScan_outputFormat: string[]
   threads: int?
+  interproscan_threads: int?
 
 outputs:
   ips_result:
