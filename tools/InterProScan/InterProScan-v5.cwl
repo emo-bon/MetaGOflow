@@ -58,13 +58,11 @@ inputs:
     label: Disables residue annotation
     doc: 'Optional, excludes sites from the XML, JSON output.'
 
-
-
   cpu: 
     type: int
     default: 8
     inputBinding: 
-      prefix: --cpu
+      prefix: '--cpu'
 
 arguments:
   - position: 0
