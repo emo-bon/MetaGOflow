@@ -341,6 +341,8 @@ steps:
        ko_file: ko_file
        threads: threads
 
+       interproscan_threads: interproscan_threads
+
     out:
       - functional_annotation_folder
       - stats
