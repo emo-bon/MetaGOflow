@@ -50,13 +50,16 @@ inputs:
   databases:
     type: [string?, Directory]
 
-
   cpu:
     type: int
     default: 8
     inputBinding:
       position: 2
       prefix: '--cpu'
+    label: Number of CPUs
+    doc: >-
+      Optional, number of CPUs to use. If not set, the number of CPUs available
+      on the machine will be used.
 
   disableResidueAnnotation:
     type: boolean?
