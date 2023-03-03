@@ -25,6 +25,9 @@ inputs:
   both_reads: string[]?
   threads: {type: int, default: 5}
 
+  #Interproscan
+  interproscan_threads: {type: int, default: 8}
+
   # Steps
   qc_and_merge_step: { type: boolean, default: true }
   taxonomic_inventory: { type: boolean, default: true }
