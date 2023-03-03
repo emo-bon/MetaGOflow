@@ -9,7 +9,7 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: ScatterFeatureRequirement
   - class: DockerRequirement
-    dockerPull: docker://hariszaf/pipeline-v5.interproscan:v5.57-90.0
+    dockerPull: hariszaf/pipeline-v5.interproscan:v5.57-90.0
   - class: InitialWorkDirRequirement
     listing:
       - entry: $(inputs.databases)
@@ -50,13 +50,16 @@ inputs:
   databases:
     type: [string?, Directory]
 
-
   cpu:
     type: int
     default: 8
     inputBinding:
       position: 2
       prefix: '--cpu'
+    label: Number of CPUs
+    doc: >-
+      Optional, number of CPUs to use. If not set, the number of CPUs available
+      on the machine will be used.
 
   disableResidueAnnotation:
     type: boolean?
