@@ -34,6 +34,7 @@ inputs:
   EggNOG_diamond_db: [string?, File?]
   EggNOG_data_dir: [string?, Directory?]
   threads: int
+  interproscan_threads: int
 
 outputs:
   hmm_result:
@@ -82,6 +83,7 @@ steps:
       InterProScan_databases: InterProScan_databases
       InterProScan_applications: InterProScan_applications
       InterProScan_outputFormat: InterProScan_outputFormat
+      interproscan_threads: interproscan_threads
     out: [ ips_result ]
 
   run_hmmer:
