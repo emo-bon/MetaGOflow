@@ -42,7 +42,7 @@ outputs:
 
 
 $schemas:
- - http://edamontology.org/EDAM_1.16.owl
+ - https://raw.githubusercontent.com/edamontology/edamontology/main/releases/EDAM_1.16.owl
  - https://schema.org/version/latest/schemaorg-current-http.rdf
 s:author: "Ekaterina Sakharova"
 s:copyrightHolder:
