@@ -1,15 +1,16 @@
 # Steps to go for
 qc_and_merge_step: true
-taxonomic_inventory: false
-cgc_step: false
-reads_functional_annotation: false
-assemble: false
+taxonomic_inventory: true
+cgc_step: true
+reads_functional_annotation: true
+assemble: true
 
 # Global
-threads: 20
+threads: 24
 
 # For parallelization cases might worth decrease global value of threads
-interproscan_threads: 20
+interproscan_threads: 6
+
 
 # fastp parameters
 detect_adapter_for_pe: false
@@ -25,7 +26,7 @@ cut_right: false
 correction: false
 
 # Assembly
-memory: 550
+memory: 5550
 min-contig-len: 200
 
 # Combined Gene Caller // the size is in MB
@@ -38,6 +39,7 @@ diamond_maxTargetSeqs: 1
 protein_chunk_size_IPS: 2000000
 protein_chunk_size_eggnog: 100000
 protein_chunk_size_hmm: 50000
+
 
 # -----------------
 # Run wf partially
@@ -55,18 +57,18 @@ protein_chunk_size_hmm: 50000
 
 # ATTENTION! 
 # Give full path of your files, NOT relative !
-
+#
 # Mandatory for running any step; merged pre-processed reads (*.merged.fasta)
 processed_reads: {
   class: File, 
   format: "edam:format_1929",
-  path:  /home1/gmoro/pipeline-v5/test_input/pseudo.merged.fasta
+  path: /usr/local/scratch/EMO_BON/MetaGOflow_docker_run/test_input/pseudo.merged.fasta
 }
 
 # Mandatory for running the taxonomy inventory step
 input_for_motus: {
   class: File, 
-  path:  /home1/gmoro/pipeline-v5/test_input/pseudo.merged.unfiltered.fasta
+  path: /usr/local/scratch/EMO_BON/MetaGOflow_docker_run/test_input/pseudo.merged.unfiltered.fasta
 }
 
 
@@ -74,26 +76,26 @@ input_for_motus: {
 # If produced previously from metaGOflow, will have a suffix like: .cmsearch.all.tblout.deoverlapped 
 maskfile: {
   class: File, 
-  path:  /home1/gmoro/pipeline-v5/test_input/pseudo.merged.cmsearch.all.tblout.deoverlapped
+  path: /usr/local/scratch/EMO_BON/MetaGOflow_docker_run/test_input/pseudo.merged.cmsearch.all.tblout.deoverlapped
 }
 
 # Mandatory for the functional annotation step 
 # Give the number of the sequences included in the predicted_faa_from_previous_run file 
 # You may get this by running:
 # grep -c ">" <*..merged_CDS.faa>
-count_faa_from_previous_run: 
+#count_faa_from_previous_run: 
 
 # Mandatory for the functional annotation step
 predicted_faa_from_previous_run: {
   class: File, 
   format: "edam:format_1929",
-  path:  /home1/gmoro/pipeline-v5/test_input/pseudo.merged_CDS.faa
+  path: /usr/local/scratch/EMO_BON/MetaGOflow_docker_run/test_input/pseudo.merged_CDS.faa
 }
 
 # Mandatory for running the assembly step 
 processed_read_files: 
   - class: File
-    path:  /home1/gmoro/pipeline-v5/test_input/pseudo_1_clean.fastq.trimmed.fasta
+    path: /usr/local/scratch/EMO_BON/MetaGOflow_docker_run/test_input/pseudo_1_clean.fastq.trimmed.fasta
   - class: File
-    path:  /home1/gmoro/pipeline-v5/test_input/pseudo_2_clean.fastq.trimmed.fasta
+    path: /usr/local/scratch/EMO_BON/MetaGOflow_docker_run/test_input/pseudo_2_clean.fastq.trimmed.fasta
 
