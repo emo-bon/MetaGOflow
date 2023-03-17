@@ -9,7 +9,7 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: ScatterFeatureRequirement
   - class: DockerRequirement
-    dockerPull: docker://hariszaf/pipeline-v5.interproscan:v5.57-90.0
+    dockerPull: hariszaf/pipeline-v5.interproscan:v5.57-90.0
   - class: InitialWorkDirRequirement
     listing:
       - entry: $(inputs.databases)
@@ -114,3 +114,4 @@ s:license: "https://www.apache.org/licenses/LICENSE-2.0"
 s:copyrightHolder:
     - name: "EMBL - European Bioinformatics Institute"
     - url: "https://www.ebi.ac.uk/"
+
