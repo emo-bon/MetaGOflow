@@ -42,6 +42,9 @@ inputs:
   #Interproscan
   interproscan_threads: {type: int, default: 8}
 
+  #Interproscan
+  interproscan_threads: {type: int, default: 8}
+
   # Steps
   qc_and_merge_step: 
     type: boolean
