@@ -237,7 +237,7 @@ inputs:
       - type: array
         items: [string, File]
   rfam_model_clans: [string, File?]
-  other_ncRNA_models: string[]?
+  # other_ncRNA_models: string[]? FIXME: not used
   ssu_label: string?
   lsu_label: string?
   5s_pattern: string?
@@ -360,7 +360,7 @@ steps:
       lsu_otus: lsu_otus
       rfam_models: rfam_models
       rfam_model_clans: rfam_model_clans
-      other_ncRNA_models: other_ncRNA_models
+      # other_ncRNA_models: other_ncRNA_models FIXME: not used
       ssu_label: ssu_label
       lsu_label: lsu_label
       5s_pattern: 5s_pattern
@@ -373,7 +373,7 @@ steps:
       - rna-count
       - compressed_files
       - optional_tax_file_flag
-      - ncRNA
+      # - ncRNA FIXME: not used
 
   # COMBINED GENE CALLER BASED ON THE READS
   cgc_on_reads:
@@ -396,7 +396,7 @@ steps:
       # Coming from the taxonomic intentory step: 
       maskfile: 
         source: 
-          - rna_prediction/ncRNA
+          # - rna_prediction/ncRNA FIXME: not used
           - maskfile
         pickValue: first_non_null
 
@@ -428,7 +428,7 @@ steps:
        # From the taxonomic inventory step 
        rna_prediction_ncRNA:
         source: 
-          - rna_prediction/ncRNA
+          # - rna_prediction/ncRNA FIXME: not used
           - maskfile
         pickValue: first_non_null
 
@@ -576,9 +576,10 @@ outputs:
     type: File?
     outputSource: rna_prediction/optional_tax_file_flag
 
-  ncRNA: 
-    type: File? 
-    outputSource: rna_prediction/ncRNA
+  # FIXME: this is not working, it is not possible to have a conditional output
+  #ncRNA:
+  #  type: File?
+  #  outputSource: rna_prediction/ncRNA
 
   # CGC ON READS
   # ---
