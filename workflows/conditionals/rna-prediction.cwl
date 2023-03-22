@@ -53,15 +53,15 @@ steps:
       silva_lsu_taxonomy: lsu_tax
       silva_ssu_otus: ssu_otus
       silva_lsu_otus: lsu_otus
-      ncRNA_ribosomal_models: rfam_models
-      ncRNA_ribosomal_model_clans: rfam_model_clans
+      # ncRNA_ribosomal_models: rfam_models FIXME: not used
+      # ncRNA_ribosomal_model_clans: rfam_model_clans FIXME: not used
       pattern_SSU: ssu_label
       pattern_LSU: lsu_label
       pattern_5S: 5s_pattern
       pattern_5.8S: 5.8s_pattern
       threads: threads
     out:
-      - ncRNA
+       # - ncRNA FIXME: this could be the cause for hanging
       - cmsearch_result
       - LSU-SSU-count
       - SSU_folder
@@ -137,7 +137,6 @@ steps:
         source:
           - tax_chunking/chunked_by_size_files
           - rna_prediction/compressed_rnas
-          # - other_ncrnas/ncrnas # FIXME: delete this line if the other_ncrnas step is not used
         linkMerge: merge_flattened
       dir_name: { default: 'sequence-categorisation' }
     out: [ out ]
@@ -175,9 +174,10 @@ outputs:
     type: File?
     outputSource: no_tax_file_flag/created_file
 
-  ncRNA: 
-    type: File? 
-    outputSource: rna_prediction/ncRNA
+  # FIXME: this step may cause problems with the output of the workflow, may lead to variation in the number of output files
+  # ncRNA:
+  #  type: File?
+  #  outputSource: rna_prediction/ncRNA
 
 $namespaces:
  edam: http://edamontology.org/
