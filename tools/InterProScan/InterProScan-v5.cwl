@@ -110,7 +110,7 @@ $namespaces:
   s: 'http://schema.org/'
 
 $schemas:
-  - 'http://edamontology.org/EDAM_1.20.owl'
+  - 'https://raw.githubusercontent.com/edamontology/edamontology/main/releases/EDAM_1.20.owl'
   - 'https://schema.org/version/latest/schemaorg-current-http.rdf'
 
 s:author: "Michael Crusoe, Aleksandra Ola Tarkowska, Maxim Scheremetjew, Haris Zafeiropoulos"

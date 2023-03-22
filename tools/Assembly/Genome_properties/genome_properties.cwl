@@ -82,7 +82,7 @@ outputs:
       glob: "SUMMARY*$(inputs.name)"
 
 $schemas:
- - http://edamontology.org/EDAM_1.20.owl
+ - https://raw.githubusercontent.com/edamontology/edamontology/main/releases/EDAM_1.20.owl
  - https://schema.org/version/latest/schemaorg-current-http.rdf
 
 $namespaces:
