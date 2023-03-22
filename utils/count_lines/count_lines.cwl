@@ -33,7 +33,7 @@ outputs:
       outputEval: $(parseInt(self[0].contents))
 
 $schemas:
- - https://raw.githubusercontent.com/edamontology/edamontology/main/releases/EDAM_1.16.owl
+ - http://edamontology.org/EDAM_1.16.owl
  - https://schema.org/version/latest/schemaorg-current-http.rdf
 
 $namespaces:
