@@ -83,15 +83,16 @@ steps:
     out: [ created_file ]
 
 
+  # FIXME: this step may cause problems with the output of the workflow, may lead to variation in the number of output files
   # << other ncrnas >>
-  other_ncrnas:
-    run: ../subworkflows/other_ncrnas.cwl
-    in:
-     input_sequences: filtered_fasta
-     cmsearch_file: rna_prediction/ncRNA
-     other_ncRNA_ribosomal_models: other_ncRNA_models
-     name_string: { default: 'other_ncrna' }
-    out: [ ncrnas ]
+  # other_ncrnas:
+  #  run: ../subworkflows/other_ncrnas.cwl
+  #  in:
+  #   input_sequences: filtered_fasta
+  #   cmsearch_file: rna_prediction/ncRNA
+  #   other_ncRNA_ribosomal_models: other_ncRNA_models
+  #   name_string: { default: 'other_ncrna' }
+  #  out: [ ncrnas ]
 
   # << ------------------ FINAL STEPS -------------------------- >>
   # gzip
@@ -136,7 +137,7 @@ steps:
         source:
           - tax_chunking/chunked_by_size_files
           - rna_prediction/compressed_rnas
-          - other_ncrnas/ncrnas
+          # - other_ncrnas/ncrnas # FIXME: delete this line if the other_ncrnas step is not used
         linkMerge: merge_flattened
       dir_name: { default: 'sequence-categorisation' }
     out: [ out ]
