@@ -393,13 +393,6 @@ steps:
           - processed_reads
         pickValue: first_non_null
 
-      # Coming from the taxonomic intentory step: 
-      maskfile: 
-        source: 
-          # - rna_prediction/ncRNA FIXME: not used
-          - maskfile
-        pickValue: first_non_null
-
       # Values from the default.yml
       postfixes: CGC_postfixes
       chunk_size: cgc_chunk_size
@@ -423,13 +416,6 @@ steps:
         source: 
           - qc_and_merge/m_filtered_fasta
           - processed_reads
-        pickValue: first_non_null
-
-       # From the taxonomic inventory step 
-       rna_prediction_ncRNA:
-        source: 
-          # - rna_prediction/ncRNA FIXME: not used
-          - maskfile
         pickValue: first_non_null
 
        #  From the CGC step
@@ -576,10 +562,7 @@ outputs:
     type: File?
     outputSource: rna_prediction/optional_tax_file_flag
 
-  # FIXME: this is not working, it is not possible to have a conditional output
-  #ncRNA:
-  #  type: File?
-  #  outputSource: rna_prediction/ncRNA
+
 
   # CGC ON READS
   # ---
