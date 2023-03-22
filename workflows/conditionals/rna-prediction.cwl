@@ -90,7 +90,6 @@ steps:
     in:
       uncompressed_file:
         source:
-          - rna_prediction/ncRNA # "cmsearch.all.deoverlapped"
           - rna_prediction/cmsearch_result # "cmsearch.all"
         linkMerge: merge_flattened
     out: [compressed_file]
