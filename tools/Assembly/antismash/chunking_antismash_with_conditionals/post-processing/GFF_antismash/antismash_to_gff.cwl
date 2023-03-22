@@ -47,7 +47,7 @@ $namespaces:
  edam: http://edamontology.org/
  s: http://schema.org/
 $schemas:
- - https://raw.githubusercontent.com/edamontology/edamontology/main/releases/EDAM_1.20.owl
+ - http://edamontology.org/EDAM_1.20.owl
  - https://schema.org/version/latest/schemaorg-current-http.rdf
 
 s:author: 'Martin Beracochea, Ekaterina Sakharova, Varsha Kale'
