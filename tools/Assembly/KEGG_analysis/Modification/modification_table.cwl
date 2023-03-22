@@ -34,7 +34,7 @@ outputs:
     format: edam:format_3475  # TXT
 
 $schemas:
- - http://edamontology.org/EDAM_1.20.owl
+ - https://raw.githubusercontent.com/edamontology/edamontology/main/releases/EDAM_1.20.owl
  - https://schema.org/version/latest/schemaorg-current-http.rdf
 
 s:author: "Ekaterina Sakharova"
