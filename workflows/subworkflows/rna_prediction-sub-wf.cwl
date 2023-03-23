@@ -22,12 +22,12 @@ inputs:
   silva_ssu_taxonomy: [string, File]
   silva_lsu_taxonomy: [string, File]
   silva_ssu_otus: [string, File]
-  silva_lsu_otus: [string, File]
-  ncRNA_ribosomal_models:
-    type:
-      - type: array
-        items: [string, File]
-  ncRNA_ribosomal_model_clans: [string, File]
+  silva_lsu_otus: [string, File] FIXME: not used
+  # ncRNA_ribosomal_models:
+  #  type:
+  #    - type: array
+  #      items: [string, File]
+  # ncRNA_ribosomal_model_clans: [string, File] FIXME: not used
   pattern_SSU: string
   pattern_LSU: string
   pattern_5S: string
@@ -89,16 +89,16 @@ steps:
       sequences: input_sequences
     out: [ sequences_with_index ]
 
-  # cmsearch -> concatinate -> deoverlap
-  find_ribosomal_ncRNAs:
-    run: cmsearch/cmsearch-condition.cwl
-    in:
-      type: type
-      threads: threads
-      query_sequences: input_sequences
+  # cmsearch -> concatinate -> deoverlap FIXME: not used
+  #find_ribosomal_ncRNAs:
+  #  run: cmsearch/cmsearch-condition.cwl
+  #  in:
+  #    type: type
+  #    threads: threads
+  #    query_sequences: input_sequences
       # covariance_models: ncRNA_ribosomal_models FIXME: not used
       # clan_info: ncRNA_ribosomal_model_clans FIXME: not used
-    out: [ concatenate_matches, deoverlapped_matches ]
+  #  out: [ concatenate_matches, deoverlapped_matches ]
 
   # extract coordinates for everything - awk command
   extract_coords:
