@@ -30,7 +30,7 @@ inputs:
         - type: array
           items: [string, File]
     rfam_model_clans: [string, File]
-    other_ncRNA_models: string[]
+    # other_ncRNA_models: string[] FIXME: not used
 
     ssu_label: string
     lsu_label: string

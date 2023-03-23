@@ -96,8 +96,8 @@ steps:
       type: type
       threads: threads
       query_sequences: input_sequences
-      covariance_models: ncRNA_ribosomal_models
-      clan_info: ncRNA_ribosomal_model_clans
+      # covariance_models: ncRNA_ribosomal_models FIXME: not used
+      # clan_info: ncRNA_ribosomal_model_clans FIXME: not used
     out: [ concatenate_matches, deoverlapped_matches ]
 
   # extract coordinates for everything - awk command
