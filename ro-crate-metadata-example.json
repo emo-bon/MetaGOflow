@@ -1,0 +1,512 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.1/context",
+    "@graph": [
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.1"
+            }
+        },
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "datePublished": "2023-03-25T19:45:41+00:00",
+            "hasPart": [
+                {
+                    "@id": "results/"
+                },
+                {
+                    "@id": "config.yml"
+                },
+                {
+                    "@id": "mini_dataset.yml"
+                },
+                {
+                    "@id": "results/functional-annotation/"
+                },
+                {
+                    "@id": "results/sequence-categorisation/"
+                },
+                {
+                    "@id": "results/taxonomy-summary/"
+                },
+                {
+                    "@id": "results/wgs-paired-SRR1620013.merged.unfiltered_fasta"
+                },
+                {
+                    "@id": "results/wgs-paired-SRR1620013.merged.fasta"
+                },
+                {
+                    "@id": "results/wgs-paired-SRR1620013.merged.qc_summary"
+                },
+                {
+                    "@id": "results/wgs-paired-SRR1620013_1.fastq.trimmed.fasta"
+                },
+                {
+                    "@id": "results/wgs-paired-SRR1620013_1.fastq.trimmed.qc_summary"
+                },
+                {
+                    "@id": "results/wgs-paired-SRR1620013_2.fastq.trimmed.fasta"
+                },
+                {
+                    "@id": "results/wgs-paired-SRR1620013_2.fastq.trimmed.qc_summary"
+                },
+                {
+                    "@id": "results/wgs-paired-SRR1620013.merged_CDS.ffn"
+                },
+                {
+                    "@id": "results/wgs-paired-SRR1620013.merged_CDS.faa"
+                },
+                {
+                    "@id": "results/fastp.html"
+                },
+                {
+                    "@id": "results/wgs-paired-SRR1620013.merged.cmsearch.all.tblout.deoverlapped"
+                },
+                {
+                    "@id": "results/RNA-counts"
+                },
+                {
+                    "@id": "results/wgs-paired-SRR1620013.merged.motus.tsv"
+                },
+                {
+                    "@id": "results/functional-annotation/stats/"
+                },
+                {
+                    "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged.summary.go"
+                },
+                {
+                    "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged.summary.go_slim"
+                },
+                {
+                    "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged_CDS.I5.tsv.gz"
+                },
+                {
+                    "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged.hmm.tsv.gz"
+                },
+                {
+                    "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged.summary.ips"
+                },
+                {
+                    "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged.summary.ko"
+                },
+                {
+                    "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged.summary.pfam"
+                },
+                {
+                    "@id": "results/functional-annotation/stats/interproscan.stats"
+                },
+                {
+                    "@id": "results/functional-annotation/stats/go.stats"
+                },
+                {
+                    "@id": "results/functional-annotation/stats/ko.stats"
+                },
+                {
+                    "@id": "results/functional-annotation/stats/pfam.stats"
+                },
+                {
+                    "@id": "results/functional-annotation/stats/orf.stats"
+                },
+                {
+                    "@id": "results/sequence-categorisation/tRNA.RF00005.fasta.gz"
+                },
+                {
+                    "@id": "results/sequence-categorisation/LSU_rRNA_bacteria.RF02541.fa.gz"
+                },
+                {
+                    "@id": "results/sequence-categorisation/SSU_rRNA_bacteria.RF00177.fa.gz"
+                },
+                {
+                    "@id": "results/taxonomy-summary/SSU/"
+                },
+                {
+                    "@id": "results/taxonomy-summary/LSU/"
+                },
+                {
+                    "@id": "results/taxonomy-summary/SSU/wgs-paired-SRR1620013.merged_SSU.fasta.mseq.gz"
+                },
+                {
+                    "@id": "results/taxonomy-summary/SSU/wgs-paired-SRR1620013.merged_SSU.fasta.mseq.tsv"
+                },
+                {
+                    "@id": "results/taxonomy-summary/SSU/wgs-paired-SRR1620013.merged_SSU.fasta.mseq.txt"
+                },
+                {
+                    "@id": "results/taxonomy-summary/SSU/krona.html"
+                },
+                {
+                    "@id": "results/taxonomy-summary/SSU/wgs-paired-SRR1620013.merged_SSU.fasta.mseq_hdf5.biom"
+                },
+                {
+                    "@id": "results/taxonomy-summary/SSU/wgs-paired-SRR1620013.merged_SSU.fasta.mseq_json.biom"
+                },
+                {
+                    "@id": "results/taxonomy-summary/LSU/wgs-paired-SRR1620013.merged_LSU.fasta.mseq.gz"
+                },
+                {
+                    "@id": "results/taxonomy-summary/LSU/wgs-paired-SRR1620013.merged_LSU.fasta.mseq.tsv"
+                },
+                {
+                    "@id": "results/taxonomy-summary/LSU/wgs-paired-SRR1620013.merged_LSU.fasta.mseq.txt"
+                },
+                {
+                    "@id": "results/taxonomy-summary/LSU/krona.html"
+                },
+                {
+                    "@id": "results/taxonomy-summary/LSU/wgs-paired-SRR1620013.merged_LSU.fasta.mseq_hdf5.biom"
+                },
+                {
+                    "@id": "results/taxonomy-summary/LSU/wgs-paired-SRR1620013.merged_LSU.fasta.mseq_json.biom"
+                }
+            ],
+            "name": "MetaGoFlow Results",
+            "publisher": {
+                "@id": "https://ror.org/0038zss60"
+            }
+        },
+        {
+            "@id": "results/",
+            "@type": "Dataset"
+        },
+        {
+            "@id": "config.yml",
+            "@type": "File",
+            "description": "The configuration file through which the user sets the values of the metaGOflow parameters.",
+            "encodingFormat": "text/yaml",
+            "name": "MetaGOflow configuration file"
+        },
+        {
+            "@id": "mini_dataset.yml",
+            "@type": "File"
+        },
+        {
+            "@id": "results/functional-annotation/",
+            "@type": "Dataset"
+        },
+        {
+            "@id": "results/sequence-categorisation/",
+            "@type": "Dataset",
+            "description": "Identify specific loci in the sample.",
+            "name": "Sequence categorisation"
+        },
+        {
+            "@id": "results/taxonomy-summary/",
+            "@type": "Dataset"
+        },
+        {
+            "@id": "results/wgs-paired-SRR1620013.merged.unfiltered_fasta",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": ""
+        },
+        {
+            "@id": "results/wgs-paired-SRR1620013.merged.fasta",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Merged filtered reads."
+        },
+        {
+            "@id": "results/wgs-paired-SRR1620013.merged.qc_summary",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Summary with statistics of the merged reads."
+        },
+        {
+            "@id": "results/wgs-paired-SRR1620013_1.fastq.trimmed.fasta",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Filtered .fastq file of the single-end reads (forward/reverse)."
+        },
+        {
+            "@id": "results/wgs-paired-SRR1620013_1.fastq.trimmed.qc_summary",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Summary with statistics of the single-end reads (forward/reverse)."
+        },
+        {
+            "@id": "results/wgs-paired-SRR1620013_2.fastq.trimmed.fasta",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Filtered .fastq file of the single-end reads (forward/reverse)."
+        },
+        {
+            "@id": "results/wgs-paired-SRR1620013_2.fastq.trimmed.qc_summary",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Summary with statistics of the single-end reads (forward/reverse)."
+        },
+        {
+            "@id": "results/wgs-paired-SRR1620013.merged_CDS.ffn",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Coding sequences with nucleotides."
+        },
+        {
+            "@id": "results/wgs-paired-SRR1620013.merged_CDS.faa",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Coding sequences with amino acids."
+        },
+        {
+            "@id": "results/fastp.html",
+            "@type": "File",
+            "description": "Quality control and preprocessing of FASTQ files",
+            "encodingFormat": "text/html",
+            "name": "FASTP analysis of raw sequence data"
+        },
+        {
+            "@id": "results/wgs-paired-SRR1620013.merged.cmsearch.all.tblout.deoverlapped",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Sequence hits against covariance model databases. Mandatory to run partially the functional annotation step of metaGOflow."
+        },
+        {
+            "@id": "results/RNA-counts",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Numbers of RNA's counted"
+        },
+        {
+            "@id": "results/wgs-paired-SRR1620013.merged.motus.tsv",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": ""
+        },
+        {
+            "@id": "results/functional-annotation/stats/",
+            "@type": "Dataset"
+        },
+        {
+            "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged.summary.go",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Merged contigs GO summary"
+        },
+        {
+            "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged.summary.go_slim",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Merged contigs GO summary"
+        },
+        {
+            "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged_CDS.I5.tsv.gz",
+            "@type": "File",
+            "encodingFormat": "application/zip",
+            "name": "Merged contigs CDS I5 summary"
+        },
+        {
+            "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged.hmm.tsv.gz",
+            "@type": "File",
+            "encodingFormat": "application/zip",
+            "name": "Merged contigs HMM summary"
+        },
+        {
+            "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged.summary.ips",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Merged contigs InterProScan"
+        },
+        {
+            "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged.summary.ko",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Merged contigs KO summary"
+        },
+        {
+            "@id": "results/functional-annotation/wgs-paired-SRR1620013.merged.summary.pfam",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Merged contigs PFAM summary"
+        },
+        {
+            "@id": "results/functional-annotation/stats/interproscan.stats",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "InterProScan summary statistics"
+        },
+        {
+            "@id": "results/functional-annotation/stats/go.stats",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Geno Ontology summary statistics"
+        },
+        {
+            "@id": "results/functional-annotation/stats/ko.stats",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Kegg Ontology summary statistics"
+        },
+        {
+            "@id": "results/functional-annotation/stats/pfam.stats",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "Pfam summary statistcs"
+        },
+        {
+            "@id": "results/functional-annotation/stats/orf.stats",
+            "@type": "File",
+            "encodingFormat": "text/plain",
+            "name": "ORF summary statistics"
+        },
+        {
+            "@id": "results/sequence-categorisation/tRNA.RF00005.fasta.gz",
+            "@type": "File",
+            "description": "Identify specific loci in the sample.",
+            "encodingFormat": "application/zip",
+            "name": "Sequence categorisation"
+        },
+        {
+            "@id": "results/sequence-categorisation/LSU_rRNA_bacteria.RF02541.fa.gz",
+            "@type": "File",
+            "description": "Identify specific loci in the sample.",
+            "encodingFormat": "application/zip",
+            "name": "Sequence categorisation"
+        },
+        {
+            "@id": "results/sequence-categorisation/SSU_rRNA_bacteria.RF00177.fa.gz",
+            "@type": "File",
+            "description": "Identify specific loci in the sample.",
+            "encodingFormat": "application/zip",
+            "name": "Sequence categorisation"
+        },
+        {
+            "@id": "results/taxonomy-summary/SSU/",
+            "@type": "Dataset"
+        },
+        {
+            "@id": "results/taxonomy-summary/LSU/",
+            "@type": "Dataset"
+        },
+        {
+            "@id": "results/taxonomy-summary/SSU/wgs-paired-SRR1620013.merged_SSU.fasta.mseq.gz",
+            "@type": "File",
+            "encodingFormat": "application/zip",
+            "name": "LSU sequences used for indentification"
+        },
+        {
+            "@id": "results/taxonomy-summary/SSU/wgs-paired-SRR1620013.merged_SSU.fasta.mseq.tsv",
+            "@type": "File",
+            "encodingFormat": "application/json-ld",
+            "name": "Tab-separated formatted taxon counts for SSU sequences"
+        },
+        {
+            "@id": "results/taxonomy-summary/SSU/wgs-paired-SRR1620013.merged_SSU.fasta.mseq.txt",
+            "@type": "File",
+            "encodingFormat": "application/json-ld",
+            "name": "Text-based formatted taxon counts for SSU sequences"
+        },
+        {
+            "@id": "results/taxonomy-summary/SSU/krona.html",
+            "@type": "File",
+            "encodingFormat": "application/html",
+            "name": "Krona summary of LSU taxonomic inventory"
+        },
+        {
+            "@id": "results/taxonomy-summary/SSU/wgs-paired-SRR1620013.merged_SSU.fasta.mseq_hdf5.biom",
+            "@type": "File",
+            "encodingFormat": "application/json-ld",
+            "name": "BIOM formatted hdf5 taxon counts for SSU sequences"
+        },
+        {
+            "@id": "results/taxonomy-summary/SSU/wgs-paired-SRR1620013.merged_SSU.fasta.mseq_json.biom",
+            "@type": "File",
+            "encodingFormat": "application/json-ld",
+            "name": "BIOM formatted taxon counts for SSU sequences"
+        },
+        {
+            "@id": "results/taxonomy-summary/LSU/wgs-paired-SRR1620013.merged_LSU.fasta.mseq.gz",
+            "@type": "File",
+            "encodingFormat": "application/zip",
+            "name": "LSU sequences used for indentification"
+        },
+        {
+            "@id": "results/taxonomy-summary/LSU/wgs-paired-SRR1620013.merged_LSU.fasta.mseq.tsv",
+            "@type": "File",
+            "encodingFormat": "application/json-ld",
+            "name": "Tab-separated formatted taxon counts for LSU sequences"
+        },
+        {
+            "@id": "results/taxonomy-summary/LSU/wgs-paired-SRR1620013.merged_LSU.fasta.mseq.txt",
+            "@type": "File",
+            "encodingFormat": "application/json-ld",
+            "name": "Text-based taxon counts for LSU sequences"
+        },
+        {
+            "@id": "results/taxonomy-summary/LSU/krona.html",
+            "@type": "File",
+            "encodingFormat": "application/html",
+            "name": "Krona summary of LSU taxonomic inventory"
+        },
+        {
+            "@id": "results/taxonomy-summary/LSU/wgs-paired-SRR1620013.merged_LSU.fasta.mseq_hdf5.biom",
+            "@type": "File",
+            "encodingFormat": "application/json-ld",
+            "name": "BIOM formatted hdf5 taxon counts for LSU sequences"
+        },
+        {
+            "@id": "results/taxonomy-summary/LSU/wgs-paired-SRR1620013.merged_LSU.fasta.mseq_json.biom",
+            "@type": "File",
+            "encodingFormat": "application/json-ld",
+            "name": "BIOM formatted taxon counts for LSU sequences"
+        },
+        {
+            "@id": "https://www.apache.org/licenses/LICENSE-2.0",
+            "@type": "CreativeWork",
+            "identifier": "https://spdx.org/licenses/Apache-2.0.html",
+            "name": "Apache License 2.0"
+        },
+        {
+            "@id": "https://creativecommons.org/licenses/by/4.0/legalcode",
+            "@type": "CreativeWork",
+            "identifier": "https://spdx.org/licenses/CC-BY-4.0.html",
+            "name": "Creative Commons (CC-BY 4.0)"
+        },
+        {
+            "@id": "mailto:help@embrc.org",
+            "@type": "ContactPoint",
+            "contactType": "Help Desk",
+            "email": "help@embrc.org",
+            "identifier": "help@embrc.org",
+            "url": "https://www.embrc.eu/about-us/contact-us"
+        },
+        {
+            "@id": "https://ror.org/0038zss60",
+            "@type": "Organization",
+            "contactPoint": {
+                "@id": "mailto:help@embrc.org"
+            },
+            "name": "European Marine Biological Resource Centre",
+            "url": "https://ror.org/0038zss60"
+        },
+        {
+            "@id": "#workflow/metaGOflow",
+            "@type": [
+                "File",
+                "SoftwareSourceCode",
+                "ComputationalWorkflow"
+            ],
+            "affiliation": "University of Flatland",
+            "author": {
+                "@id": "EMO BON"
+            },
+            "hasPart": [
+                {
+                    "@id": "config.yml"
+                },
+                {
+                    "@id": "MINI_DATASET_FA/mini_dataset.yml"
+                }
+            ],
+            "license": {
+                "@id": "https://www.apache.org/licenses/LICENSE-2.0"
+            },
+            "name": "metaGOflow",
+            "url": "https://github.com/emo-bon/MetaGOflow/releases/tag/v1.0.0"
+        }
+    ]
+}

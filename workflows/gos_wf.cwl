@@ -67,15 +67,11 @@ inputs:
     doc: |
       metaGOflow will perform the functional annotation step
 
-
   assemble: 
     type: boolean
     default: false 
     doc: |
         metaGOflow will perform the assembly step using MEGAHIT
-
-  # # Files to run partially the wf
-  # ncrna_tab_file: {type: File?}
 
   # Pre-process
   overrepresentation_analysis: 
@@ -117,7 +113,6 @@ inputs:
     type: int?
     doc: |
         fastp parameter setting the percentage of bases allowed to be unqualified (0~100). Default 40 means 40%.
-
 
   min_length_required:
     type: int
@@ -302,13 +297,14 @@ steps:
       # Merged sequence file
       - m_qc_stats
       - m_filtered_fasta
+      - m_qc_summary
 
       # Trimmed PE files
       - qc-statistics
       - qc_summary
       - qc-status
       - input_files_hashsum_paired
-      - fastp_filtering_json
+      - fastp_filtering_html
       - filtered_fasta
       - motus_input
 
@@ -513,26 +509,18 @@ steps:
       - options
 
 outputs:
-  # QC FOR RNA PREDICTION
+
+  # QUALITY CONTROL
   # ---------------------
-  qc-statistics:
-    type: Directory[]?
-    outputSource: qc_and_merge/qc-statistics
-    pickValue: all_non_null
 
   qc_summary:
     type: File[]?
     outputSource: qc_and_merge/qc_summary
     pickValue: all_non_null
 
-  hashsum_paired:
-    type: File[]?
-    outputSource: qc_and_merge/input_files_hashsum_paired
-    pickValue: all_non_null
-
-  fastp_filtering_json_report:
+  fastp_filtering_html_report:
     type: File?
-    outputSource: qc_and_merge/fastp_filtering_json
+    outputSource: qc_and_merge/fastp_filtering_html
     pickValue: all_non_null
 
   m_filtered_fasta:  # this is the filtered merged seq file
@@ -544,9 +532,9 @@ outputs:
     outputSource: qc_and_merge/filtered_fasta
     pickValue: all_non_null
 
-  m_qc_stats:
-    type: Directory? 
-    outputSource: qc_and_merge/m_qc_stats
+  m_qc_summary:
+    type: File?
+    outputSource: qc_and_merge/m_qc_summary
 
   motus_input:
     type: File?
@@ -554,12 +542,14 @@ outputs:
 
   # mOTUs STEP
   # ----------------------
+
   motus:
     type: File
     outputSource: motus_taxonomy/motus
 
   # RNA PREDICTION STEP 
   # ----------------------
+
   sequence-categorisation_folder:
     type: Directory?
     outputSource: rna_prediction/sequence_categorisation_folder
@@ -623,4 +613,5 @@ $schemas:
 
 s:license: "https://www.apache.org/licenses/LICENSE-2.0"
 s:copyrightHolder: "European Marine Biological Resource Centre"
-s:author: "Haris Zafeiropoulos"
+s:author: "EMO BON team"
+s:version: "v1.0.0"

@@ -134,7 +134,7 @@ steps:
     in:
       file_list:
         source:
-          - tax_chunking/chunked_by_size_files
+          # - tax_chunking/chunked_by_size_files
           - rna_prediction/compressed_rnas
           - other_ncrnas/ncrnas
         linkMerge: merge_flattened

@@ -30,12 +30,12 @@ inputs:
     doc: >
       Number of originally submitted sequences as in the user
       submitted FASTQ file - single end FASTQ or pair end merged FASTQ file.
-  stats_file_name:
-    type: string
-    default: stats_summary
-    label: 'Post QC stats output file name'
-    doc: >
-      Give a name for the file which will hold the stats after QC.
+  # stats_file_name:
+  #   type: string
+  #   default: stats_summary
+  #   label: 'Post QC stats output file name'
+  #   doc: >
+  #     Give a name for the file which will hold the stats after QC.
   min_length:
     type: int
     default: 100 # For assemblies we need to set this in the input YAML to 500
@@ -56,13 +56,13 @@ outputs:
     label: Stats summary output file
     type: File
     outputBinding:
-      glob: $(inputs.stats_file_name)
+      glob: $(inputs.seq_file.nameroot).qc_summary
 
 arguments:
    - position: 2
      valueFrom: $(inputs.seq_file.nameroot).fasta
    - position: 3
-     valueFrom: $(inputs.stats_file_name)
+     valueFrom: $(inputs.seq_file.nameroot).qc_summary
    - position: 4
      valueFrom: $(inputs.submitted_seq_count)
    - position: 5

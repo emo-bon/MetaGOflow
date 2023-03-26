@@ -116,8 +116,15 @@ venv.bak/
 
 # Ignore real-world test samples
 test_input/SRR*
+test_input/DB*
 
 # Ignore dev output 
 TEST_*/
 *.output
+
+STELIOS_TEST/
+marine_sediment_dbh/
+
+slurm_run.sh
+
 

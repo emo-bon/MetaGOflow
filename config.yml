@@ -1,15 +1,15 @@
 # Steps to go for
 qc_and_merge_step: true
-taxonomic_inventory: false
-cgc_step: false
-reads_functional_annotation: false
+taxonomic_inventory: true
+cgc_step: true
+reads_functional_annotation: true
 assemble: false
 
 # Global
-threads: 20
+threads: 40
 
-# For parallelization cases might worth decrease global value of threads
-interproscan_threads: 20
+# As a rule of thumb keep that as floor(threads/8) where threads the previous parameter
+interproscan_threads: 4
 
 # fastp parameters
 detect_adapter_for_pe: false

@@ -5,7 +5,6 @@ from ruamel.yaml import YAML
 import os
 import yaml as yml
 
-
 db_fields = [
     "ssu_db",
     "lsu_db",
@@ -90,13 +89,6 @@ if __name__ == "__main__":
         help="The accession number in ENA of the run to be analysed", 
         required=False
     )
-    # parser.add_argument(
-    #     "-s", 
-    #     "--study_accession_number", 
-    #     dest="study_accession_number", 
-    #     help="The accession number in ENA of the study of the run", 
-    #     required=False
-    # )
     parser.add_argument(
         "-p", 
         "--private", 
@@ -126,10 +118,6 @@ if __name__ == "__main__":
     # load template yml file and append database path
     template_yml = db_dir(args.db_dir, args.tools_dir, args.yml)
 
-    # paired_reads = [args.fr.split("/")[-1].split(".fastq.gz")[0], args.rr.split("/")[-1].split(".fastq.gz")[0]]
-    # paired_reads_names = '"' + paired_reads[0] + '", "' + paired_reads[1] + '"'
-
-
     # Building the .yml file
     with open(args.output, "w") as output_yml:
         
@@ -137,7 +125,9 @@ if __name__ == "__main__":
 
         yaml.dump(template_yml, output_yml)
 
-    with open("config.yml", "r") as config_yml: 
+    cwd = os.getcwd()
+    config_file =  os.path.join(cwd, "config.yml")
+    with open(config_file, "r") as config_yml: 
 
         config = yml.safe_load(config_yml)
 

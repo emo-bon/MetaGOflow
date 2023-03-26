@@ -48,8 +48,12 @@ outputs:
       - m_convert_trimmed_reads_to_fasta/fasta
     pickValue: first_non_null
 
+  m_qc_summary:
+    type: File
+    outputSource: m_length_filter/stats_summary_file
+
   # outputs for each of the 2 trimmed seq file
-  fastp_filtering_json:
+  fastp_filtering_html:
     type: File?
     outputSource: fastp_trim_and_overlap/html_report
 
@@ -154,7 +158,6 @@ steps:
     in:
       seq_file: m_convert_trimmed_reads_to_fasta/fasta
       submitted_seq_count: count_submitted_reads/count
-      stats_file_name: {default: 'qc_summary'}
       min_length: min_length_required
       input_file_format: { default: 'fasta' }
     out: [ filtered_file, stats_summary_file ]
@@ -180,7 +183,7 @@ steps:
       QCed_reads: m_length_filter/filtered_file
       sequence_count: m_count_processed_reads/count
       out_dir_name: qc_stats_folder_for_merged
-    out: [ output_dir ]
+    out: [ output_dir, summary_out ]
 
 
   clean_merged_fasta_headers:
@@ -188,8 +191,6 @@ steps:
     in:
       sequences: fastp_trim_and_overlap/merged_fastq
     out: [ sequences_with_cleaned_headers ]
-
-
 
   # WITH REPSECT TO EACH OF THE 2 TRIMMED SEQ FILES
   # -------------------------------------------------
@@ -217,11 +218,9 @@ steps:
     in:
       seq_file: convert_trimmed_reads_to_fasta/fasta
       submitted_seq_count: count_submitted_reads/count
-      stats_file_name: {default: 'qc_summary' }
       min_length: min_length_required 
       input_file_format: { default: 'fasta' }
     out: [ filtered_file, stats_summary_file ]
-
 
   count_processed_reads:
     run: ../../utils/count_fasta.cwl

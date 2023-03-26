@@ -1,4 +1,5 @@
 # default values #
+METAGOFLOW_VERSION="https://github.com/emo-bon/MetaGOflow/releases/tag/v1.0.0"
 SCRIPT_PATH=$(realpath "$0")
 PIPELINE_DIR=$(dirname "${SCRIPT_PATH}")
 MEMORY=10G
@@ -27,6 +28,7 @@ Script arguments.
 "
 }
 
+# [TODO] Consider adding a -t argument to run using toil.
 while getopts :y:f:r:e:u:k:c:d:m:n:l:sph option; do
   case "${option}" in
   y) YML=${OPTARG} ;;
@@ -80,10 +82,9 @@ _check_mandatory() {
 }
 
 _check_reads() {
-  #check forward and reverse reads both present
-  #check if single reads then no other readsgiven
-
-  #  BASH SYNTAX: 
+  # check forward and reverse reads both present
+  # check if single reads then no other readsgiven
+  # BASH SYNTAX: 
   # to check if a variable has value: 
   # [ -z "$var" ] && echo "Empty"
 
@@ -105,11 +106,11 @@ _check_mandatory "$NAME" "-n"
 _check_mandatory "$RUN_DIR" "-d"
 _check_reads "$FORWARD_READS" "$REVERSE_READS" 
 
-
-
 # ----------------------------- environment & variables ----------------------------- #
 
 # load required environments and packages before running
+
+export CWD=$(pwd)
 
 export TOIL_SLURM_ARGS="--array=1-${LIMIT_QUEUE}%20" #schedule 100 jobs 20 running at one time
 export CWL="${PIPELINE_DIR}/workflows/gos_wf.cwl"
@@ -123,13 +124,11 @@ export TMPDIR=${RUN_DIR}/tmp
 export OUT_DIR=${RUN_DIR}
 export LOG_DIR=${OUT_DIR}/log-dir/${NAME}
 export OUT_DIR_FINAL=${OUT_DIR}/results
-export PROV_DIR=${OUT_DIR}/prov 
 export CACHE_DIR=${OUT_DIR}/cache
-mkdir -p "${OUT_DIR_FINAL}" "${TMPDIR}" "${PROV_DIR}" 
-	 #"${CACHE_DIR}" ${JOB_TOIL_FOLDER}" "${LOG_DIR}"
+mkdir -p "${OUT_DIR_FINAL}" "${TMPDIR}"
 
-export RENAMED_YML_TMP=${RUN_DIR}/"${NAME}"_temp.yml
-export RENAMED_YML=${RUN_DIR}/"${NAME}".yml
+export EXTENDED_CONFIG_YAML_TMP=${RUN_DIR}/"${NAME}"_temp.yml
+export EXTENDED_CONFIG_YAML=${RUN_DIR}/"${NAME}".yml
 
 # Get study id in case of ENA fetch tool
 if [[ $ENA_RUN_ID != "" ]];
@@ -156,24 +155,16 @@ then
 
   export PATH_ENA_RAW_DATA=${PIPELINE_DIR}/${OUT_DIR}/raw_data_from_ENA/${ENA_STUDY_ID}/raw/
 
-
 fi
-
 
 # ----------------------------- prepare yml file ----------------------------- #
 
 echo "Writing yaml file"
 
-echo "${PIPELINE_DIR}/${FORWARD_READS}"
-
-echo "only reads"
-echo "${FORWARD_READS}"
-
-
 # DO NOT leave spaces after "\" in the end of a line
-python3 create_yml.py \
+python utils/create_yml.py \
   -y "${YML}" \
-  -o "${RENAMED_YML_TMP}" \
+  -o "${EXTENDED_CONFIG_YAML_TMP}" \
   -l "${PATH_ENA_RAW_DATA}" \
   -f "${PIPELINE_DIR}/${FORWARD_READS}" \
   -r "${PIPELINE_DIR}/${REVERSE_READS}" \
@@ -181,9 +172,8 @@ python3 create_yml.py \
   -t "${TOOLS}" \
   -e "${ENA_RUN_ID}"
 
-echo "done"
-
 mv eosc-wf.yml ${RUN_DIR}/
-cat ${RUN_DIR}/eosc-wf.yml ${RENAMED_YML_TMP} > ${RENAMED_YML}
-rm ${RENAMED_YML_TMP}
+cat ${RUN_DIR}/eosc-wf.yml ${EXTENDED_CONFIG_YAML_TMP} > ${EXTENDED_CONFIG_YAML}
+rm ${EXTENDED_CONFIG_YAML_TMP}
 rm ${RUN_DIR}/eosc-wf.yml
+cp config.yml ${RUN_DIR}/
