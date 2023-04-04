@@ -1,0 +1,20 @@
+---
+---
+
+@import "jekyll-theme-minimal";
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #4d82b4;
+    color: #faf4f4f3;
+  }
+
