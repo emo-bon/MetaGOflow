@@ -1,0 +1,44 @@
+name: GitHub Actions Demo
+on: 
+  push:
+    branches:
+      except:
+        - "gh-pages"
+
+jobs:
+  cwl_tests:
+    name: Run cwl_tests.sh
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y python3-pip
+          pip install cwltool lockfile
+
+      - uses: actions/checkout@v2
+      - run: | 
+          ls
+
+      - name: Validate workflow
+        run: |
+          cwltool --validate workflows/gos_wf.cwl
+
+      # - uses: conda-incubator/setup-miniconda@v2
+      #   with:
+      #     activate-environment: anaconda-client-env
+      #     environment-file: etc/environment.yml
+      #     python-version: 3.7
+      #     condarc-file: etc/condarc.yml
+      #     auto-activate-base: false
+      # - run: |
+      #     conda info
+      #     conda list
+      # - name: Install sudo dependencies
+      #   run: sudo apt-get install -y tabix
+      # - name: Run cwl test from base repo
+      #   run: | 
+      #     cd cwl_tests/
+      #     bash run_tests.sh
