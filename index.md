@@ -18,8 +18,9 @@ A quality control report, the taxonomic inventories as well as some of the funct
 * To have an overview on the metaGOflow results for the **marine sediment** sample click [here](./marine-sediment.html).
 * For the **water column** sample, you may have a look [here](./water-column.html)
 
-We also tested metaGOflow with a TARA OCEAN sample ([ERR599171](https://www.ebi.ac.uk/ena/browser/view/ERR599171)).
+We also tested metaGOflow with a TARA OCEAN sample.
 You may find the RO-crate produced from the complete metaGOflow run for this sample through this [Zenodo repository]().
+Last, you may have a look on the `ro-crate-metadata.json` file that describes the RO-Crate metaGOflow built for this sample [here](./rocrate-metadata.md).
 
 **metaGOflow source code:**
 [GitHub repo](https://github.com/emo-bon/MetaGOflow)
