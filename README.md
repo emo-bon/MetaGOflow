@@ -22,7 +22,7 @@ To run metaGOflow you need to make sure you have the following set on your compu
 - [ro-crate-py](https://github.com/ResearchObject/ro-crate-py) [v 0.7.0]
 - [pyyaml](https://pypi.org/project/PyYAML/) [v 6.0]
 - [Node.js](https://nodejs.org/) [v 10.24.0+]
-- Available storage ~235GB for databases
+- Available storage ~160GB for databases
 
 ### Storage while running
 
