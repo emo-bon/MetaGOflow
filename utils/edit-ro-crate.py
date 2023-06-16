@@ -57,7 +57,7 @@ descriptions = [
     {
         "@id": "ko.stats",
         "@type": "File",
-        "name": "Kegg Ontology summary statistics",
+        "name": "KEGG ORTHOLOGY summary statistics",
         "encodingFormat": "text/plain"
     },
     {
@@ -87,31 +87,31 @@ descriptions = [
     {
         "@id": ".merged.summary.go",
         "@type": "File",
-        "name": "Merged contigs GO summary",
+        "name": "Gene Ontology annotations summary",
         "encodingFormat": "text/plain"
     },
     {
         "@id": ".merged.summary.go_slim",
         "@type": "File",
-        "name": "Merged contigs InterProScan slim",
+        "name": "Gene Ontology slim annotations",
         "encodingFormat": "text/plain"
     },
     {
         "@id": ".merged.summary.ips",
         "@type": "File",
-        "name": "Merged contigs InterProScan",
+        "name": "InterProScan annotations",
         "encodingFormat": "text/plain"
     },
     {
         "@id": ".merged.summary.ko",
         "@type": "File",
-        "name": "Merged contigs KO summary",
+        "name": "KEGG ORTHOLOGY annotations",
         "encodingFormat": "text/plain"
     },
     {
         "@id": ".merged.summary.pfam",
         "@type": "File",
-        "name": "Merged contigs PFAM summary",
+        "name": "Pfam annotations",
         "encodingFormat": "text/plain"
     },
     {
