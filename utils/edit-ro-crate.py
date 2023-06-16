@@ -225,13 +225,13 @@ descriptions = [
     {
         "@id": ".merged.unfiltered_fasta",
         "@type": "File",
-        "name": "",
+        "name": "Merged sequences that did not pass the filtering",
         "encodingFormat": "text/plain"
     },
     {
         "@id": ".motus.tsv",
         "@type": "File",
-        "name": "",
+        "name": "Merged sequences MOTUs",
         "encodingFormat": "text/plain"
     },
     {
