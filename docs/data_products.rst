@@ -161,6 +161,8 @@ A hierarchical visual component of the taxonomic profile based on the LSU and th
    :width: 850
 
 
+In this `video <https://www.youtube.com/watch?v=nzBiE5TEK9Y>`_  you may watch a thorough description on how to navigate a Krona plot.
+
 
 - **Files** under the ``sequence-categorisation`` folder
 
