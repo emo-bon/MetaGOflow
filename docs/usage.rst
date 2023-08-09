@@ -12,7 +12,7 @@ Raw data
 The sequences file can be provided to ``metaGOflow`` directly or an ENA accession id of the run of intereste can be provided and 
 ``metaGOflow`` will fetch the data automatically. 
 
-.. attention:: ``metaGOflow`` is not valid for the analysis of long reads samples
+.. attention:: ``metaGOflow`` is not valid for the analysis of long reads samples, e.g. Oxford Nanopore or PacBio reads.
 
 
 Run ``metaGOflow``
@@ -48,7 +48,7 @@ About the ``config.yml`` file and how to set the parameters on it, you may see t
    ./run_wf.sh -e ERR599171 -d my_analysis -n ERR599171 -s
 
 
-The first lines starting with a ``#``` stand for `SLURM commands <https://slurm.schedmd.com/overview.html>`_
+The first lines starting with a ``#`` stand for `SLURM commands <https://slurm.schedmd.com/overview.html>`_
 SLURM is a widely used cluster management and job scheduling system among several ones. 
 In any case, you need to ensure you are in line with your HPC instructions.
 
@@ -60,7 +60,7 @@ and the workflow will be performed using Singularity (`-s`).
 An output directory will be built called ``my_analysis`` and the prefix of the data products will be the same 
 as the accession id, as ``-n`` has the same value with ``-e``.
 
-.. attention:: Remember to always keep the ``config.yaml`` file in the root directory of the
+.. attention:: Remember to always keep the ``config.yml`` file in the root directory of the
       folder as downloaded from the GitHub repository.
 
 
@@ -186,8 +186,6 @@ including:
      - .chunks
    * - ``*.merged_CDS.I5.tsv.gz``
      - Merged contigs CDS I5 summary 
-   * - ``*.merged.hmm.tsv.chunks``
-     - d
    * - ``*.merged.hmm.tsv.gz``
      - Merged contigs HMM summary
    * - ``*.merged.summary.go``

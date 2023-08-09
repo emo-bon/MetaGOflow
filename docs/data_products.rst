@@ -10,7 +10,7 @@ Quality filtering step
 - ``*.fastq.trimmed.fasta`` **files** 
 Filtered .fasta files of the forward (R1) and reverse (R2) reads. Its content strongly depends on the 
 ``fastp``-related :doc:`/args_and_params` parameters. 
-A record in a .fasta file consists of 2 parts: a *header* that always starts with a ``>``` and describes
+A record in a .fasta file consists of 2 parts: a *header* that always starts with a ``>`` and describes
 the sequence (experiment id, coordinates etc.) and the sequence. 
 Example:
 

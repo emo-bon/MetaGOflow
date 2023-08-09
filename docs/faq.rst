@@ -9,12 +9,12 @@ Frequently asked questions (FAQs)
 Can I use ``metaGOflow`` with host-associated data?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In case of host-associated data, the user needs to make sure the host sequences have been removed before start using ``metaGOflow``.
+In case of host-associated data, the user would probably want to remove the host sequences before running ``metaGOflow``. 
+If not, then (as expected) the host will be present in the taxonomic inventory outputs. 
 
 
-
-Does my PCR protocol affect the ``metaGOflow`` performance?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Does my choice of sequencing platform affect the ``metaGOflow`` performance?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Yes and no. You can use ``metaGOflow`` using any type of adapters or set up. 
 However, you need to consider these settings when filling in the ``config.yml`` file
@@ -54,7 +54,7 @@ Based on the questions one needs to address, there are several types of downstre
 Here is a short, not comprehensive, list of resources that might be found useful: 
 
 - `SHAMAN <https://shaman.pasteur.fr>`_ supports a bioinformatic workflow for metataxonomic analysis and a reliable statistical modelling based on `DESeq2 <https://doi.org/10.1186/s13059-014-0550-8>_` 
-- `LEfSe <https://github.com/biobakery/biobakery/wiki/lefse>`_ aims at explaining differences between classes by coupling standard tests for statistical significance with additional tests encoding biological consistency and effect relevance.
+- `LEfSe <https://github.com/biobakery/biobakery/wiki/lefse>`_ aims at explaining differences between classes by coupling standard tests for statistical significance with additional tests encoding biological consistency and effect relevance
 - `flashWeave <https://github.com/meringlab/FlashWeave.jl>`_ allows to build co-occurrence networks using an abundance table as input but also metadata describing the samples under study
 
 
