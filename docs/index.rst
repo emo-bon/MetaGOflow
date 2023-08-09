@@ -44,7 +44,9 @@ Contents
    faq
 
 .. image:: images/Logo-EOSC-Life-neu.png
-   :width: 500
+   :width: 250
+   :target: https://www.eosc-life.eu
 
 .. image:: images/emo_bon_logo.jpg
    :width: 250
+   :target: https://data.emobon.embrc.eu
