@@ -42,3 +42,9 @@ Contents
    usage
    data_products
    faq
+
+.. image:: images/Logo-EOSC-Life-neu.png
+   :width: 500
+
+.. image:: images/emo_bon_logo.jpg
+   :width: 250
