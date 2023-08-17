@@ -15,8 +15,8 @@ Inline, a few technical arguments are provided as described below:
 
 .. code-block:: console
 
-   -f                  Forward reads fasta file path (mandatory if and olny if -e not used).
-   -r                  Reverse reads fasta file path (mandatory if and olny if -e not used).
+   -f                  Forward reads fasta file path (mandatory if and only if -e not used).
+   -r                  Reverse reads fasta file path (mandatory if and only if -e not used).
    -e                  ENA run accession number. Its raw data will be fetched and then analysed (if used, -f and -r should not me set). 
    -d                  Output directory name (mandatory).
    -n                  Name of run and prefix to output files (mandatory).
@@ -41,7 +41,7 @@ Parameters
 
 
 The steps to be performed in a ``metaGOflow`` run and the parameters of the software to be invoked 
-are provded through the  ``config.yml``  file [`url <https://github.com/emo-bon/MetaGOflow/blob/eosc-life-gos/config.yml>`_].
+are provided through the  ``config.yml``  file [`url <https://github.com/emo-bon/MetaGOflow/blob/eosc-life-gos/config.yml>`_].
 
 
 ``metaGOflow`` does not need to perform all its steps at once; one may run the first *n* steps. 
@@ -59,7 +59,7 @@ The steps to be performed are selected by setting ``True`` or ``False`` the foll
 +---------------------------------+----------------------------------------------------------------------------------------------------------+
 |``cgc_step``                     |  Exports coding sequences                                                                                |
 +---------------------------------+----------------------------------------------------------------------------------------------------------+
-|``reads_functional_annotation``  |  Performs functionall annotation on the coding genes found using a list of resources: InterPro, KEGG     |
+|``reads_functional_annotation``  |  Performs functional annotation on the coding genes found using a list of resources: InterPro, KEGG     |
 +---------------------------------+----------------------------------------------------------------------------------------------------------+
 |``assemble``                     |  Assembles the filtered and merged sequences to contigs                                                  |
 +---------------------------------+----------------------------------------------------------------------------------------------------------+
@@ -71,7 +71,7 @@ The steps to be performed are selected by setting ``True`` or ``False`` the foll
    It is the end products of each step that are required for any following step.
 
 
-Besides the steps to be performed, a number of parameters to best fit the idiosyncracy of the sequences to be analysed need to be set
+Besides the steps to be performed, a number of parameters to best fit the idiosyncrasy of the sequences to be analysed need to be set
 as well as, some resources-to-be-used related ones.
 
 .. attention:: We strongly advised user not to use the default arguments without considering first their data and their computing system
@@ -145,7 +145,7 @@ for the best tuning of those.
 Running ``metaGOflow`` partially
 ---------------------------------
 
-To use previous data products of a strudy to run steps not performed in the first place, 
+To use previous data products of a study and run steps not performed in the first place,
 certain files that were produced (in the first run) are required, based on the steps performed and those to be performed.
 
 +-----------------------------------+------------------------------------------------------------------------------------------------------------+

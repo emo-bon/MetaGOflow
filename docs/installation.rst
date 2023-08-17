@@ -13,7 +13,7 @@ Dependencies
 To run metaGOflow you need to make sure you have the following set on your computing environment first:
 
 - python3 [v 3.8+]
-- `Docker <https://www.docker.com>`_ [v 19.+] or `Singularity <https://apptainer.org>`_ [v 3.7.+] / `Apptainer <https://apptainer.org>`_ [v 1.+]
+- `Docker <https://www.docker.com>`_ [v 19.+] or `Singularity <https://docs.sylabs.io/guides/3.7/user-guide/introduction.html>`_ [v 3.7.+] / `Apptainer <https://apptainer.org>`_ [v 1.+]
 - `cwltool <https://github.com/common-workflow-language/cwltool>`_ [v 3.+]
 - `rdflib <https://rdflib.readthedocs.io/en/stable/>`_ [v 6.+]
 - `rdflib-jsonld <https://pypi.org/project/rdflib-jsonld/>`_ [v 0.6.2]
