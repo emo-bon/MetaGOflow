@@ -94,7 +94,7 @@ A file with the number of the LSU and SSU counts on the sample:
 
 - ``*.merged_LSU.fasta.mseq.gz`` and ``*.merged_SSU.fasta.mseq.gz`` **files** 
 
-Compressed files with rRNA sequences used for taxonomic indentification along with their hits and scores. 
+Compressed files with rRNA sequences used for taxonomic identification along with their hits and scores.
 The decompressed files consist of 13 columns with the taxonomy assignment in the last one. 
 
 .. code-block:: bash
@@ -212,10 +212,10 @@ Functional annotation step
 Main output of the InterPro annotation. 
 A compressed tab separated file consisting of 15 columns. 
 The ``protein_accession`` is the id with which the protein can be found in the samples' reads. 
-In the ``analysis`` column, it is mentioned which of the InterProScan analysis the entry is refferring to 
+In the ``analysis`` column, it is mentioned which of the InterProScan analysis the entry is referring to
 (i.e., Pfam, TIGRFAM, PrositePatterns, ProSiteProfiles).
 In the ``go`` column, the corresponding Gene Ontology term is mentioned, 
-while in the last column ("``pathways_annotations``") annotations linked to the origingal, from resources such as MetaCYC, Reactome etc are mentioned. 
+while in the last column ("``pathways_annotations``") annotations linked to the original, from resources such as MetaCYC, Reactome etc are mentioned.
 
 .. code-block:: bash
 

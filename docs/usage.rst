@@ -160,7 +160,7 @@ The taxonomic inventory related data products can be found in a subfolder inside
    * - ``SSU``
      - Folder with data products based on the small ribosomal subunit
    * - ``*.merged_SSU.fasta.mseq.gz``
-     - SSU rRNA sequences used for taxonomic indentification
+     - SSU rRNA sequences used for taxonomic identification
    * - ``*.merged_SSU.fasta.mseq_hdf5.biom``
      - OTUs and taxonomic assignments for SSU rRNA (hdf5 formatted BIOM)
    * - ``*.merged_SSU.fasta.mseq_json.biom`` 
