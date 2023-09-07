@@ -3,9 +3,10 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - python=3.8
+  - python
   - nodejs
   - pip:
-      - cwltool==3.1.20230624081518
-      - rocrate==0.8.0
-      - ruamel-yaml==0.17.32
+      - cwltool
+      - cwlref-runner
+      - rocrate
+      - ruamel-yaml
