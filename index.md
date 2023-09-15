@@ -19,7 +19,7 @@ A quality control report, the taxonomic inventories as well as some of the funct
 * For the **water column** sample, you may have a look [here](./water-column.html)
 
 We also tested metaGOflow with a TARA OCEAN sample.
-You may find the RO-crate produced from the complete metaGOflow run for this sample through this [Zenodo repository]().
+You may find the RO-crate produced from the complete metaGOflow run for this sample through this [Zenodo repository](https://zenodo.org/record/8046421).
 Last, you may have a look on the `ro-crate-metadata.json` file that describes the RO-Crate metaGOflow built for this sample [here](./rocrate-metadata.html).
 
 **metaGOflow source code:**
