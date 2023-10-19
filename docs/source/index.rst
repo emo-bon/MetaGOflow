@@ -18,7 +18,7 @@ based on the user's settings.
 Check out the :doc:`usage` section for further information, including
 :ref:`installation` instructions for the project.
 
-.. image:: images/pipeline.png
+.. image:: ../images/pipeline.png
    :width: 500
 
 
