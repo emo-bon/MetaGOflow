@@ -24,11 +24,10 @@ Check out the :doc:`usage` section for further information, including
 
 .. note::
 
-   This project is under active development.
-   The source code is available on `GitHub <github.com/emo-bon/MetaGOflow>`_.
-
-
-Citation: currently under revision in *GigaScience*.
+   If you find metaGOflow useful, remember to cite it:
+   
+   Haris Zafeiropoulos, Martin Beracochea, Stelios Ninidakis, Katrina Exter, Antonis Potirakis, Gianluca De Moro, Lorna Richardson, Erwan Corre, 
+   João Machado, Evangelos Pafilis, Georgios Kotoulas, Ioulia Santi, Robert D Finn, Cymon J Cox, Christina Pavloudi, metaGOflow: a workflow for the analysis of marine Genomic Observatories shotgun metagenomics data, *GigaScience*, Volume 12, 2023, giad078, `10.1093/gigascience/giad078 <https://academic.oup.com/gigascience/article/doi/10.1093/gigascience/giad078/7321054>`_.
 
 
 
