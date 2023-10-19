@@ -1,1 +1,0 @@
-../../docker/scripts_python2/run_quality_filtering.py

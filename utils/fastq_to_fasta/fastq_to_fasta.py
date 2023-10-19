@@ -1,1 +1,0 @@
-../../docker/scripts_python3/fastq_to_fasta.py

@@ -1,3 +1,0 @@
-type: enum
-name: protein_formats
-symbols: [ TSV, XML, GFF3, JSON, HTML, SVG ]

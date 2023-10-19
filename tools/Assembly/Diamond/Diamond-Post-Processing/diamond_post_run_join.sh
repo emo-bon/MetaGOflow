@@ -1,1 +1,0 @@
-../../../../docker/scripts_bash/diamond_post_run_join.sh

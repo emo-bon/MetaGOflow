@@ -1,5 +1,0 @@
-eggnog_annotations: {
-  class: File,
-  path: wgs-paired-SRR1620013.merged.emapper.annotations
-}
-outputname: testt.tsv

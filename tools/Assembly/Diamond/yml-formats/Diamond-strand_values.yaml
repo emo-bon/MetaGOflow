@@ -1,3 +1,0 @@
-type: enum
-name: strand
-symbols: [ both, plus, minus ]

@@ -1,3 +1,0 @@
-table:
-  class: File
-  path: ../hmmscan/expected-output/assembly-SRR1620013_small_FASTA_FASTA.hmm.tsv

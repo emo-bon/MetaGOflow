@@ -1,3 +1,0 @@
-type: enum
-name: end_mode
-symbols: [ SE, PE ]
