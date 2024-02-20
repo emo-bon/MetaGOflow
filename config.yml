@@ -6,10 +6,10 @@ reads_functional_annotation: true
 assemble: true
 
 # Global
-threads: 40
+threads: 56
 
 # As a rule of thumb keep that as floor(threads/8) where threads the previous parameter
-interproscan_threads: 5
+interproscan_threads: 6
 
 # fastp parameters
 detect_adapter_for_pe: false
@@ -35,9 +35,9 @@ cgc_chunk_size: 200
 # diamond_maxTargetSeqs: 1
 
 # Functional annotation
-protein_chunk_size_IPS: 1000000 # 20000000
+protein_chunk_size_IPS:    2000000 # 20000000
 protein_chunk_size_eggnog: 4000000
-protein_chunk_size_hmm: 4000000
+protein_chunk_size_hmm:    4000000
 
 # -----------------
 # Run wf partially
