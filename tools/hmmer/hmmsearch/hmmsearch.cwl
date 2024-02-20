@@ -30,7 +30,8 @@ requirements:
 
 hints:
   DockerRequirement:
-    dockerPull: microbiomeinformatics/pipeline-v5.hmmer:v3.2.1
+    #dockerPull: microbiomeinformatics/pipeline-v5.hmmer:v3.2.1
+    dockerPull: cymon/hmmer-3.4:0.1
 
 baseCommand: ["hmmsearch"]
 

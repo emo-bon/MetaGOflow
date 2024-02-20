@@ -9,7 +9,8 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: ScatterFeatureRequirement
   - class: DockerRequirement
-    dockerPull: hariszaf/pipeline-v5.interproscan:v5.57-90.0
+    #dockerPull: hariszaf/pipeline-v5.interproscan:v5.57-90.0
+    dockerPull: cymon/interproscan-5.64-96.0-cluster:0.5
   - class: InitialWorkDirRequirement
     listing:
       - entry: $(inputs.databases)
