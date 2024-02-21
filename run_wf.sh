@@ -232,34 +232,34 @@ cd ${CWD}
 
 
 # -----------------------  build RO-crate   --------------------------- #
+#
+#if [ -z "$ENA_RUN_ID" ]; then
+#  ENA_RUN_ID="None"
+#else
+#  rm -r ${OUT_DIR}/raw_data_from_ENA
+#fi
 
-if [ -z "$ENA_RUN_ID" ]; then
-  ENA_RUN_ID="None"
-else
-  rm -r ${OUT_DIR}/raw_data_from_ENA
-fi
-
-# Init the RO-Crate
-rocrate init -c ${RUN_DIR}
+## Init the RO-Crate
+#rocrate init -c ${RUN_DIR}
 
 # Edit the RO-Crate
-if [[ $KEEP_TMP != "" ]];
-then 
-  export KEEP_TMP="True"
-else
-  export KEEP_TMP="False"
-fi
+#if [[ $KEEP_TMP != "" ]];
+#then 
+#  export KEEP_TMP="True"
+#else
+#  export KEEP_TMP="False"
+#fi
 
-python utils/edit-ro-crate.py ${OUT_DIR} ${EXTENDED_CONFIG_YAML} ${ENA_RUN_ID} ${METAGOFLOW_VERSION} ${KEEP_TMP}
+#python utils/edit-ro-crate.py ${OUT_DIR} ${EXTENDED_CONFIG_YAML} ${ENA_RUN_ID} ${METAGOFLOW_VERSION} ${KEEP_TMP}
 
 
 # Bring back temporary folder if kept.
-if [[ $KEEP_TMP == "True" ]];
-then 
-  echo "Keep temporary output directory."
-  mv ${CWD}/tmp ${TMPDIR}
-fi
-
-echo "metaGOflow has been completed."
+#if [[ $KEEP_TMP == "True" ]];
+#then 
+#  echo "Keep temporary output directory."
+#  mv ${CWD}/tmp ${TMPDIR}
+#fi
+#
+#echo "metaGOflow has been completed."
 
 
