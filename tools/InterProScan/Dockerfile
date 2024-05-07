@@ -1,5 +1,5 @@
 # InterProScan with the version 3 Prosite binaries required for AMD EPYC cluster
-# Cymon J. Cox (9/11/23)
+# Cymon J. Cox (7/5/24)
 
 # Get the core part of IPS
 # -------------------------
@@ -17,15 +17,15 @@ FROM base AS buildcore
 RUN mkdir -p /opt/interproscan
 WORKDIR /opt
 
-RUN wget -q -O /opt/interproscan-core-$IPRSCAN.tar.gz ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/$IPR/$IPRSCAN/alt/interproscan-core-$IPRSCAN.tar.gz && \
-    wget -q -O /opt/interproscan-core-$IPRSCAN.tar.gz.md5 ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/$IPR/$IPRSCAN/alt/interproscan-core-$IPRSCAN.tar.gz.md5 && \
-    md5sum -c interproscan-core-$IPRSCAN.tar.gz.md5 && \
+RUN wget -q -O /opt/interproscan-core-$IPRSCAN.tar.gz ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/$IPR/$IPRSCAN/alt/interproscan-core-$IPRSCAN.tar.gz
+RUN wget -q -O /opt/interproscan-core-$IPRSCAN.tar.gz.md5 ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/$IPR/$IPRSCAN/alt/interproscan-core-$IPRSCAN.tar.gz.md5
+RUN md5sum -c interproscan-core-$IPRSCAN.tar.gz.md5 && \
     tar -pxvf interproscan-core-$IPRSCAN.tar.gz -C /opt/interproscan --strip-components=1 && \
     rm -f interproscan-core-$IPRSCAN.tar.gz interproscan-core-$IPRSCAN.tar.gz
-RUN sed -i 's/https:\/\/www\.ebi\.ac\.uk\/interpro\/match-lookup//' /opt/interproscan/interproscan.properties && \
-    sed -i '20i binary.prosite.pfsearchv3.path=${bin.directory}/prosite/pfsearchV3\n' /opt/interproscan/interproscan.properties && \
-    sed -i '20i binary.prosite.pfscanv3.path=${bin.directory}/prosite/pfscanV3' /opt/interproscan/interproscan.properties && \
-    sed -i '20i # See https://interproscan-docs.readthedocs.io/en/latest/KnownIssues.html#prosite-pfsearchv3-errors' /opt/interproscan/interproscan.properties
+RUN sed -i 's/https:\/\/www\.ebi\.ac\.uk\/interpro\/match-lookup//' /opt/interproscan/interproscan.properties
+RUN sed -i '20i binary.prosite.pfsearchv3.path=${bin.directory}/prosite/pfsearchV3\n' /opt/interproscan/interproscan.properties
+RUN sed -i '20i binary.prosite.pfscanv3.path=${bin.directory}/prosite/pfscanV3' /opt/interproscan/interproscan.properties
+RUN sed -i '20i # See https://interproscan-docs.readthedocs.io/en/latest/KnownIssues.html#prosite-pfsearchv3-errors' /opt/interproscan/interproscan.properties
 
 # Get the bin part of IPS
 # -------------------------
@@ -33,9 +33,9 @@ FROM base AS buildbin
 RUN mkdir -p /opt/interproscan
 WORKDIR /opt
 
-RUN wget -q -O /opt/interproscan-mgbin-$IPRSCAN.tar.gz ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/$IPR/$IPRSCAN/alt/interproscan-mgbin-$IPRSCAN.tar.gz && \
-    wget -q -O /opt/interproscan-mgbin-$IPRSCAN.tar.gz.md5 ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/$IPR/$IPRSCAN/alt/interproscan-mgbin-$IPRSCAN.tar.gz.md5 && \
-    md5sum -c interproscan-mgbin-$IPRSCAN.tar.gz.md5 && \
+RUN wget -q -O /opt/interproscan-mgbin-$IPRSCAN.tar.gz ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/$IPR/$IPRSCAN/alt/interproscan-mgbin-$IPRSCAN.tar.gz
+RUN wget -q -O /opt/interproscan-mgbin-$IPRSCAN.tar.gz.md5 ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/$IPR/$IPRSCAN/alt/interproscan-mgbin-$IPRSCAN.tar.gz.md5
+RUN md5sum -c interproscan-mgbin-$IPRSCAN.tar.gz.md5 && \
     tar -pxvzf interproscan-mgbin-$IPRSCAN.tar.gz -C /opt/interproscan --strip-components=1 && \
     rm -f interproscan-mgbin-$IPRSCAN.tar.gz interproscan-mgbin-$IPRSCAN.tar.gz.md5
     
@@ -58,8 +58,8 @@ RUN apt-get update && \
     #This version of pcre2 is need by the Prosite binaries
     apt-get install libpcre2-8-0 -y && \
     apt-get clean && \
-    apt-get purge && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    apt-get purge
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY --from=buildcore /opt/interproscan /opt/interproscan
 COPY --from=buildbin /opt/interproscan/bin /opt/interproscan/bin
