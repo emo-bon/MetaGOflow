@@ -14,13 +14,11 @@ The workflows developed in the framework of this project are based on `pipeline-
 
 To run metaGOflow you need to make sure you have the following set on your computing environmnet first:
 
-- python3 [v 3.8+]
+- python [v 3.8+]
 - [Docker](https://www.docker.com) [v 19.+] or [Singularity](https://apptainer.org) [v 3.7.+]/[Apptainer](https://apptainer.org) [v 1.+]
-- [cwltool](https://github.com/common-workflow-language/cwltool) [v 3.+]
-- [rdflib](https://rdflib.readthedocs.io/en/stable/) [v 6.+]
-- [rdflib-jsonld](https://pypi.org/project/rdflib-jsonld/) [v 0.6.2]
-- [ro-crate-py](https://github.com/ResearchObject/ro-crate-py) [v 0.7.0]
-- [pyyaml](https://pypi.org/project/PyYAML/) [v 6.0]
+- [cwltool](https://pypi.org/project/cwltool/) [v 3.+]
+- [rocrate](https://pypi.org/project/rocrate/) [v 0.7.0]
+- [ruamel.yaml](https://pypi.org/project/ruamel.yaml) [v 0.17.32+]
 - [Node.js](https://nodejs.org/) [v 10.24.0+]
 - Available storage ~160GB for databases
 
@@ -58,31 +56,22 @@ db_kofam/  diamond/  eggnog/  GO-slim/  interproscan-5.57-90.0/  kegg_pathways/ 
 
 ## How to run
 
+We recommend utilizing [Conda](https://docs.conda.io/projects/conda/en/stable/) to create a virtual environment. We provide a Conda [environment file](conda_environment.yml) that includes the necessary dependencies.
+
 ### Set up the environment
 
 #### Run once - Setup environment
 
-- ```bash
-  conda create -n EOSC-CWL python=3.8
-  ```
+This will create a conda env called `metagoflow`.
 
-- ```bash
-  conda activate EOSC-CWL
-  ```
-
-- ```bash
-  pip install cwlref-runner cwltool[all] rdflib-jsonld rocrate pyyaml
-
-  ```
-  
-- ```bash
-  conda install -c conda-forge nodejs
-  ```
+```bash
+conda env create -f conda_environment.yml
+```
 
 #### Run every time
 
 ```bash
-conda activate EOSC-CWL
+conda activate metagoflow
 ``` 
 
 ### Run the workflow
@@ -92,10 +81,13 @@ conda activate EOSC-CWL
 #### Using Singularity
 
 ##### Standalone
-- run:
-   ```bash
-   ./run_wf.sh -s -n osd-short -d short-test-case -f test_input/wgs-paired-SRR1620013_1.fastq.gz -r test_input/wgs-paired-SRR1620013_2.fastq.gz
-   ``
+
+```bash
+./run_wf.sh -s -n osd-short \
+-d short-test-case \
+-f test_input/wgs-paired-SRR1620013_1.fastq.gz \
+-r test_input/wgs-paired-SRR1620013_2.fastq.gz
+```
 
 ##### Using a cluster with a queueing system (e.g. SLURM)
 
@@ -109,10 +101,12 @@ conda activate EOSC-CWL
 #### Using Docker
 
 ##### Standalone
-- run:
-    ``` bash
-    ./run_wf.sh -n osd-short -d short-test-case -f test_input/wgs-paired-SRR1620013_1.fastq.gz -r test_input/wgs-paired-SRR1620013_2.fastq.gz
-  ```
+
+``` bash
+./run_wf.sh -n osd-short -d short-test-case \
+-f test_input/wgs-paired-SRR1620013_1.fastq.gz \
+-r test_input/wgs-paired-SRR1620013_2.fastq.gz
+```
   HINT: If you are using Docker, you may need to run the above command without the `-s' flag.
 
 ## Testing samples

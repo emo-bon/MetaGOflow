@@ -1,12 +1,11 @@
 #! /usr/bin/env python3
 
-import os, sys
+import os
 import shutil
 import argparse 
 import textwrap
 from rocrate.rocrate import ROCrate
 from rocrate.model.person import Person
-import datetime
 
 ena_accession_raw_data= "Raw sequence data and laboratory sequence generation metadata",
 
