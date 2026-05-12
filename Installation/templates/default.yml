@@ -188,7 +188,7 @@ ko_file:
 
 InterProScan_applications: 
 - Pfam
-- TIGRFAM
+- NCBIfam
 - PrositePatterns
 - ProSiteProfiles
 # - Hamap
@@ -197,7 +197,7 @@ InterProScan_outputFormat: ["TSV"]
 
 InterProScan_databases: 
     class: Directory
-    path: interproscan-5.57-90.0/data
+    path: interproscan-5.64-96.0/data
 
 EggNOG_data_dir: 
   class: Directory
