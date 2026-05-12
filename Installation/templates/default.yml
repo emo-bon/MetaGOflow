@@ -197,7 +197,7 @@ InterProScan_outputFormat: ["TSV"]
 
 InterProScan_databases: 
     class: Directory
-    path: interproscan-5.64-96.0/data
+    path: interproscan-5.77-108.0/data
 
 EggNOG_data_dir: 
   class: Directory
