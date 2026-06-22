@@ -10,7 +10,7 @@ LABEL Version="metaGOflow version"
 
 ARG IPR=5
 ENV IPR $IPR
-ARG IPRSCAN=5.64-96.0 
+ARG IPRSCAN=5.77-108.0 
 ENV IPRSCAN $IPRSCAN
 
 FROM base AS buildcore
