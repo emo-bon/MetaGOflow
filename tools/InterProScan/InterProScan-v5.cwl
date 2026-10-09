@@ -9,7 +9,7 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: ScatterFeatureRequirement
   - class: DockerRequirement
-    dockerPull: cymon/interproscan-5.64-96.0-cluster:0.5
+    dockerPull: sninidakis/ips:latest
   - class: InitialWorkDirRequirement
     listing:
       - entry: $(inputs.databases)
