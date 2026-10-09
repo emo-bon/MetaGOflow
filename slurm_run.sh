@@ -8,8 +8,8 @@
 #SBATCH --mail-user=haris.zafr@gmail.com
 #SBATCH --mail-type=ALL
 #SBATCH --requeue
-#SBATCH --job-name="rocr-tax"
-#SBATCH --output=rocrates_tax.output
+#SBATCH --job-name="tara4IPS"
+#SBATCH --output=tara4cpusIPS.output
 
 # Deactivate conda if already there
 conda deactivate
@@ -20,7 +20,7 @@ module load singularity/3.7.1
 
 
 # Run the wf with mini dataset
-./run_wf.sh -f test_input/wgs-paired-SRR1620013_1.fastq.gz -r test_input/wgs-paired-SRR1620013_2.fastq.gz -n mini_dataset -d MINI_DATASET -s
+# ./run_wf.sh -f test_input/wgs-paired-SRR1620013_1.fastq.gz -r test_input/wgs-paired-SRR1620013_2.fastq.gz -n mini_dataset -d MINI_DATASET -s 
 
 # Run the wf with short dataset
 # ./run_wf.sh -f test_input/test_1_fwd_HWLTKDRXY_600000.fastq.gz -r test_input/test_2_rev_HWLTKDRXY_600000.fastq.gz -n dev_dataset -d DEV_DATASET -s
@@ -33,7 +33,8 @@ module load singularity/3.7.1
 # ./run_wf.sh -f test_input/DBB_AABVOSDA_1_1_HMNJKDSX3.UDI256_clean.fastq.gz -r test_input/DBB_AABVOSDA_1_2_HMNJKDSX3.UDI256_clean.fastq.gz -n DBB_dataset -d water_column_dbb -s
 
 # To run an ENA run
-# ./run_wf.sh -e ERR855786 -d TEST_SIMPLIFIED_PFAM -n ERR855786 -s
+./run_wf.sh -e ERR599171 -d TARA_OCEANS_SAMPLE -n ERR599171 -s -b
+#./run_wf.sh -f test_input/ERR599171_1.fastq.gz -r test_input/ERR599171_2.fastq.gz -n ERR599171  -d TARA_OCEANS_SAMPLE_3steps -s
 
 
 # Disable the module

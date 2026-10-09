@@ -53,7 +53,7 @@ outputs:
 
 steps:
 
-  # << FUNCTIONAL ANNOTATION: hmmscan, IPS, eggNOG >>
+  # Performs: 1. eggNOG, 2. hmmscan, 3. IPS 
   functional_annotation:
     run: ../subworkflows/functional-annotation/functional-annotation.cwl
     in:
@@ -76,7 +76,7 @@ steps:
       EggNOG_db: EggNOG_db
       threads: threads
       interproscan_threads: interproscan_threads
-    out: [ hmm_result, ips_result ]
+    out: [ hmm_result, ips_result, eggnog_annotations ]  
 
   # GO SUMMARY; PFAM; summaries and stats IPS, HMMScan, Pfam; add header; chunking TSV
   post_processing:
@@ -100,7 +100,15 @@ steps:
       - go_summary_slim
       - chunked_tsvs
 
-  # << move to functional annotation >>
+  # Summary for EggNOG
+  eggnog_summary:
+    run: ../../tools/EggNOG-Parse/eggnog_annotations.cwl
+    in:
+      eggnog_annotations: functional_annotation/eggnog_annotations
+    out:
+      [summary_eggnog]
+
+  # Move to functional annotation
   move_to_functional_annotation_folder:
     run: ../../utils/return_directory/return_directory.cwl
     in:
@@ -112,11 +120,12 @@ steps:
           - post_processing/go_summary
           - post_processing/go_summary_slim
           - post_processing/chunked_tsvs
+          - eggnog_summary/summary_eggnog
         linkMerge: merge_flattened
       dir_name: { default: functional-annotation }
     out: [ out ]
 
-
+# Schenas
 $namespaces:
  edam: http://edamontology.org/
  s: http://schema.org/

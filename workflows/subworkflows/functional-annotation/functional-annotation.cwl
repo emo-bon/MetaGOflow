@@ -26,8 +26,8 @@ inputs:
   chunk_size_IPS: int
   name_ips: string
   InterProScan_databases: [string, Directory]
-  InterProScan_applications: string[]  # ../tools/InterProScan/InterProScan-apps.yaml#apps[]?
-  InterProScan_outputFormat: string[]  # ../tools/InterProScan/InterProScan-protein_formats.yaml#protein_formats[]?
+  InterProScan_applications: string[]  
+  InterProScan_outputFormat: string[]  
 
   chunk_size_eggnog: int
   EggNOG_db: [string?, File?]

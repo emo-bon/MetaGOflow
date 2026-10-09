@@ -117,6 +117,7 @@ venv.bak/
 # Ignore real-world test samples
 test_input/SRR*
 test_input/DB*
+test_input/ERR*
 
 # Ignore dev output 
 TEST_*/

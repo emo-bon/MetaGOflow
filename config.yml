@@ -3,18 +3,18 @@ qc_and_merge_step: true
 taxonomic_inventory: true
 cgc_step: true
 reads_functional_annotation: true
-assemble: false
+assemble: true
 
 # Global
 threads: 40
 
 # As a rule of thumb keep that as floor(threads/8) where threads the previous parameter
-interproscan_threads: 4
+interproscan_threads: 5
 
 # fastp parameters
 detect_adapter_for_pe: false
 overrepresentation_analysis: false
-min_length_required: 100
+min_length_required: 108
 force_polyg_tail_trimming: 
 base_correction: false
 qualified_phred_quality: 
@@ -25,8 +25,8 @@ cut_right: false
 correction: false
 
 # Assembly
-memory: 550
-min-contig-len: 200
+memory: 0.9
+min-contig-len: 500
 
 # Combined Gene Caller // the size is in MB
 cgc_chunk_size: 200
@@ -35,9 +35,9 @@ cgc_chunk_size: 200
 # diamond_maxTargetSeqs: 1
 
 # Functional annotation
-protein_chunk_size_IPS: 2000000
-protein_chunk_size_eggnog: 100000
-protein_chunk_size_hmm: 50000
+protein_chunk_size_IPS: 1000000 # 20000000
+protein_chunk_size_eggnog: 4000000
+protein_chunk_size_hmm: 4000000
 
 # -----------------
 # Run wf partially
@@ -60,7 +60,7 @@ protein_chunk_size_hmm: 50000
 processed_reads: {
   class: File, 
   format: "edam:format_1929",
-  path:  workflows/pseudo_files/pseudo.merged.fasta
+  path:  results/ERR599171.merged.fasta
 }
 
 # Mandatory for running the taxonomy inventory step
@@ -74,20 +74,20 @@ input_for_motus: {
 # If produced previously from metaGOflow, will have a suffix like: .cmsearch.all.tblout.deoverlapped 
 maskfile: {
   class: File, 
-  path:  workflows/pseudo_files/pseudo.merged.cmsearch.all.tblout.deoverlapped
+  path:  results/ERR599171.merged.cmsearch.all.tblout.deoverlapped
 }
 
 # Mandatory for the functional annotation step 
 # Give the number of the sequences included in the predicted_faa_from_previous_run file 
 # You may get this by running:
 # grep -c ">" <*..merged_CDS.faa>
-count_faa_from_previous_run: 
+count_faa_from_previous_run: 18934897
 
 # Mandatory for the functional annotation step
 predicted_faa_from_previous_run: {
   class: File, 
   format: "edam:format_1929",
-  path:  workflows/pseudo_files/pseudo.merged_CDS.faa
+  path:  results/ERR599171.merged_CDS.faa
 }
 
 # Mandatory for running the assembly step 

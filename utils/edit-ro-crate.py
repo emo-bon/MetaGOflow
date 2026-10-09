@@ -1,11 +1,11 @@
 #! /usr/bin/env python3
 
-import sys
+import os
+import shutil
 import argparse 
 import textwrap
 from rocrate.rocrate import ROCrate
 from rocrate.model.person import Person
-import datetime
 
 ena_accession_raw_data= "Raw sequence data and laboratory sequence generation metadata",
 
@@ -349,14 +349,14 @@ descriptions = [
     }
 ]
 
-def main(target_directory, extended_config_yaml, ena_run_accession_id, metagoflow_version ):
+def main(target_directory, extended_config_yaml, ena_run_accession_id, metagoflow_version, keep_tmp):
     """
     Edit the output of the `rocrate init` tool. 
     Map files descriptions ; should be done through the cwl descriptions but we go that way at a later point.
     Add extra ids on the ro-crate describing the metaGOflow workflow and the ENA data (if used). 
     """
 
-    crate = ROCrate(target_directory) # here we use a complete directory, could we use just the json..?
+    crate = ROCrate(target_directory) 
 
     for entry in crate.get_entities():
         for description in descriptions:
@@ -373,10 +373,9 @@ def main(target_directory, extended_config_yaml, ena_run_accession_id, metagoflo
     metagoflow_id = "workflow/metaGOflow"
     mg_license_id = "https://www.apache.org/licenses/LICENSE-2.0"
     embrc_id      = "https://ror.org/0038zss60"
-    mail_id       = "mailto:help@embrc.org"
+    mail_id       = "mailto:emobon@embrc.eu"
     metagoflow_product_license_id = "https://creativecommons.org/licenses/by/4.0/legalcode"
     
-
     mg_license = crate.add(Person(crate, mg_license_id, properties={
         "@type": "CreativeWork",
         "name": "Apache License 2.0",
@@ -392,11 +391,10 @@ def main(target_directory, extended_config_yaml, ena_run_accession_id, metagoflo
     embrc_mail = crate.add(Person(crate, mail_id, properties={
         "@type": "ContactPoint",
         "contactType": "Help Desk",
-        "email": "help@embrc.org",
-        "identifier": "help@embrc.org",
+        "email": "emobon@embrc.eu",
+        "identifier": "emobon@embrc.eu",
         "url": "https://www.embrc.eu/about-us/contact-us"
     }))
-
 
     embrc = crate.add(Person(crate, embrc_id, properties={
         "@type": "Organization",
@@ -404,7 +402,6 @@ def main(target_directory, extended_config_yaml, ena_run_accession_id, metagoflo
         "url": embrc_id,
         "contactPoint": {"@id": mail_id}
     }))
-
 
     metagoflow = crate.add(Person(crate, metagoflow_id, properties={
         "@type": ["File", "SoftwareSourceCode", "ComputationalWorkflow"],
@@ -436,18 +433,36 @@ def main(target_directory, extended_config_yaml, ena_run_accession_id, metagoflo
     # crate.root_dataset.properties()["license"]   = {"@id": metagoflow_product_license_id}
     crate.root_dataset.properties()["publisher"] =  {"@id": embrc_id}
 
-    print("export...")
 
-    crate.write_zip("".join([target_directory,".zip"]))
     
+    # Checking if the results folder is empty or not
+    results_path = os.path.join(target_directory, "results")
+    results_dir  = os.listdir(results_path)
+
+    # If empty, keep the output folder but do not build a .zip with the final RO-Crate
+    assert len(results_dir) != 0,'''The results folder is empty. metaGOflow did not perform as expected. \nPlease check the log file for further information\nRemember that the ro-crate-metadata.json file in the output directory is not the one of an actual RO-Crate and it's there only to help you find the error on your run.'''
+
+    # If not empty, build a .zip with the RO-Crate and remove the output directory with the tmp
+    print("Writing the RO-Crate .zip file")
+    crate.write_zip("".join([target_directory,".zip"]))
     print("..ro-crate as .zip ready.")
+
+    if keep_tmp:
+        print("Keep the tmp folder.")
+    else:
+        shutil.rmtree(target_directory)
+        print("Remove the tmp folder.")
+
+    return 0
 
 
 if __name__ == "__main__":
 
+    desc = '''This script parses the output of the ro-crate tool to add metadata describing metaGOflow and the data used in this run.'''
+
     parser = argparse.ArgumentParser(
-            formatter_class=argparse.RawDescriptionHelpFormatter
-            # description=textwrap.dedent(desc),
+            formatter_class=argparse.RawDescriptionHelpFormatter,
+            description=textwrap.dedent(desc),
             )
     parser.add_argument("target_directory",
                         help="Name of target directory containing MetaGOflow" +\
@@ -463,8 +478,17 @@ if __name__ == "__main__":
     parser.add_argument("metagoflow_version",
                         help="URL pointing to the metaGOflow version used"
                         )
+    parser.add_argument("keep_tmp",
+                        help="Remove metaGOflow's output directory to keep only a .zip file with the final RO-Crate",
+                        )
 
     args = parser.parse_args()
-    
+
+    if args.keep_tmp == "True":
+        args.keep_tmp = True
+    else:
+        args.keep_tmp = False
+
     # Run main function
-    main(args.target_directory, args.extended_config_yaml, args.ena_run_accession_id, args.metagoflow_version)
+    print("Editing the RO-Crate JSON-LD")
+    main(args.target_directory, args.extended_config_yaml, args.ena_run_accession_id, args.metagoflow_version, args.keep_tmp)

@@ -2,7 +2,8 @@
 # -------------------------
 FROM busybox AS buildcore
 
-LABEL Maintainer="MGnify team <https://www.ebi.ac.uk/support/metagenomics>"
+LABEL Maintainer="MGnify team <https://www.ebi.ac.uk/support/metagenomics>, Haris Zafeiropoulos <haris.zafeiropoulos@kuleuven.be>"
+LABEL Version="metaGOflow version"
 
 ARG IPR=5
 ENV IPR $IPR

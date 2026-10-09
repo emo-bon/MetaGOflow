@@ -2,7 +2,7 @@
 FROM ubuntu:20.04
 
 # LABEL about the custom image
-LABEL maintainer="sninidakis@hcmr.gr,hariz-zaf@hcmr.gr"
+LABEL maintainer="sninidakis@hcmr.gr,haris-zaf@hcmr.gr"
 LABEL version="0.1"
 LABEL description="EBI Fetch Tool Docker Image."
 

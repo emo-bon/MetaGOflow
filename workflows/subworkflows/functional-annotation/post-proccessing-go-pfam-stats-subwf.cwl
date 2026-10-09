@@ -51,7 +51,7 @@ outputs:
 
 steps:
 
-# << GO SUMMARY>>
+  # GO summary based on InterProScan
   go_summary_step:
     run: ../../../tools/GO-slim/go_summary.cwl
     in:
@@ -62,7 +62,7 @@ steps:
         valueFrom: $(self.nameroot).summary.go
     out: [go_summary, go_summary_slim]
 
-# << PFAM >>
+  # PFAM summary again based on InterProScan
   pfam:
     run: ../../../tools/Pfam-Parse/pfam_annotations.cwl
     in:
@@ -72,7 +72,7 @@ steps:
         valueFrom: $(self.nameroot).pfam
     out: [annotations]
 
-# << summaries and stats IPS, HMMScan, Pfam >>
+  # Summaries and stats regarding InterProScan, HMMScan and Pfam
   write_summaries:
     run: ../func_summaries.cwl
     in:
@@ -85,7 +85,7 @@ steps:
        ko_file: ko_file
     out: [summary_ips, summary_ko, summary_pfam, summary_antismash, stats]
 
-# add header
+  # add header
   header_addition:
     scatter: [input_table, header]
     scatterMethod: dotproduct
@@ -107,7 +107,7 @@ steps:
         linkMerge: merge_nested
     out: [ output_table ]
 
-# chunking
+  # chunking
   chunking_tsv:
     run: ../../../utils/result-file-chunker/result_chunker_subwf.cwl
     in:
